@@ -3,7 +3,7 @@
 # 💎 THE DATA REFINERY
 ### 🏔️ AWS x Snowflake x dbt: Enterprise Data Architecture
 
-![Project Banner](enterprise_banner.png)
+![Project Banner](professional_banner.png)
 
 **A Principled Medallion Infrastructure for Modern Global Intelligence**
 
