@@ -1,0 +1,19 @@
+version: 2
+
+sources:
+  - name: staging
+    database: AIRBNB
+    schema: staging
+    description: "Raw source data from Airbnb dataset."
+    config:
+      freshness:
+        warn_after: { count: 24, period: hour }
+        error_after: { count: 48, period: hour }
+      loaded_at_field: CREATED_AT
+    tables:
+      - name: listings
+        description: "Airbnb listings data."
+      - name: bookings
+        description: "Airbnb bookings data."
+      - name: hosts
+        description: "Airbnb hosts data."

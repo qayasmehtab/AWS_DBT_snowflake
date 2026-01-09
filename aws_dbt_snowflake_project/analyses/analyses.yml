@@ -1,0 +1,9 @@
+version: 2
+
+analyses:
+  - name: explore
+    description: "General investigation of the dataset to explore raw or aggregated data."
+  - name: If_else
+    description: "Demonstration of Jinja if-else logic to conditionally filter bookings based on the number of nights."
+  - name: Loop
+    description: "Demonstration of Jinja for-loop logic to dynamically select columns from the bronze_bookings model."

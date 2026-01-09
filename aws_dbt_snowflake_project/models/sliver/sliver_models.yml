@@ -1,0 +1,77 @@
+version: 2
+
+models:
+  - name: sliver_bookings
+    description: "Enriched booking data from the silver layer, featuring calculated total amounts."
+    columns:
+      - name: booking_id
+        description: "Primary key for bookings."
+        tests:
+          - unique
+          - not_null
+      - name: listing_id
+        description: "Foreign key to listings."
+      - name: booking_date
+        description: "The date of the booking."
+      - name: total_amount
+        description: "The calculated total price (base amount * nights) with a 2% service fee rounding."
+      - name: booking_status
+        description: "Current status of the booking."
+      - name: service_fee
+        description: "Platform service fee."
+      - name: cleaning_fee
+        description: "Mandatory cleaning fee."
+      - name: created_at
+        description: "Timestamp when the record was processed into the silver layer."
+
+  - name: sliver_hosts
+    description: "Cleaned host data from the silver layer, featuring response quality categorization."
+    columns:
+      - name: host_id
+        description: "Primary key for hosts."
+        tests:
+          - unique
+          - not_null
+      - name: host_name
+        description: "The formatted name of the host (spaces replaced with underscores)."
+      - name: host_since
+        description: "The date the host joined."
+      - name: is_superhost
+        description: "Flag for superhost status."
+      - name: response_rate
+        description: "Numerical response rate percentage."
+      - name: response_rate_quality
+        description: "Categorical quality rating: VERY GOOD (>95), GOOD (>80), FAIR (>60), POOR (otherwise)."
+      - name: created_at
+        description: "Timestamp when the record was processed into the silver layer."
+
+  - name: sliver_listings
+    description: "Cleaned listing data from the silver layer, featuring price level tagging."
+    columns:
+      - name: listing_id
+        description: "Primary key for listings."
+        tests:
+          - unique
+          - not_null
+      - name: host_id
+        description: "Foreign key to hosts."
+      - name: property_type
+        description: "Type of property."
+      - name: room_type
+        description: "Type of accommodation."
+      - name: city
+        description: "Location city."
+      - name: country
+        description: "Location country."
+      - name: accommodates
+        description: "Capacity of the listing."
+      - name: bedrooms
+        description: "Number of bedrooms."
+      - name: bathrooms
+        description: "Number of bathrooms."
+      - name: price_per_night
+        description: "Price per single night."
+      - name: price_level
+        description: "Categorical price level (low, medium, high) based on price per night."
+      - name: created_at
+        description: "Timestamp when the record was processed into the silver layer."

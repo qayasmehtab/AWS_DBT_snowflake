@@ -1,0 +1,5 @@
+version: 2
+
+snapshots:
+  - name: dim_bookings_snapshot
+    description: "SCD Type 2 snapshot for long-term historical tracking of booking status and price changes."

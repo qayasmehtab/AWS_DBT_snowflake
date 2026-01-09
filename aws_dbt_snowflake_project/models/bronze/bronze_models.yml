@@ -1,0 +1,75 @@
+version: 2
+
+models:
+  - name: bronze_bookings
+    description: "Raw booking data from the staging lake, including IDs, dates, and amounts."
+    columns:
+      - name: booking_id
+        description: "Primary key for bookings."
+        tests:
+          - unique
+          - not_null
+      - name: listing_id
+        description: "Foreign key to listings."
+      - name: booking_date
+        description: "The date the booking was made."
+      - name: nights_booked
+        description: "Total number of nights for the booking."
+      - name: booking_amount
+        description: "Base rate for the booking."
+      - name: cleaning_fee
+        description: "Fee charged for cleaning services."
+      - name: service_fee
+        description: "Service fee charged by the platform."
+      - name: booking_status
+        description: "The current status of the booking (e.g., confirmed, cancelled)."
+      - name: created_at
+        description: "Timestamp when the record was created in the source system."
+
+  - name: bronze_hosts
+    description: "Raw host data, including host IDs, names, and superhost status."
+    columns:
+      - name: host_id
+        description: "Primary key for hosts."
+        tests:
+          - unique
+          - not_null
+      - name: host_name
+        description: "The name of the host."
+      - name: host_since
+        description: "The date the host joined the platform."
+      - name: is_superhost
+        description: "Boolean flag identifying superhost status."
+      - name: response_rate
+        description: "The host's response rate percentage."
+      - name: created_at
+        description: "Timestamp when the record was created in the source system."
+
+  - name: bronze_listings
+    description: "Raw listing data, including accommodation details and prices."
+    columns:
+      - name: listing_id
+        description: "Primary key for listings."
+        tests:
+          - unique
+          - not_null
+      - name: host_id
+        description: "Foreign key to the host."
+      - name: property_type
+        description: "The type of property (e.g., Apartment, House)."
+      - name: room_type
+        description: "The type of room (e.g., Entire home, Private room)."
+      - name: city
+        description: "The city where the listing is located."
+      - name: country
+        description: "The country where the listing is located."
+      - name: accommodates
+        description: "The number of people the listing accommodates."
+      - name: bedrooms
+        description: "The number of bedrooms."
+      - name: bathrooms
+        description: "The number of bathrooms."
+      - name: price_per_night
+        description: "The price per night for the listing."
+      - name: created_at
+        description: "Timestamp when the record was created in the source system."
