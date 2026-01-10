@@ -126,7 +126,7 @@ AWS_DBT_Snowflake/
 1. **Snowflake Account (will create one if it doesn't exist)**
 
 2. **Python Environment**
-   - Python 3.12 or higher
+   - Python 3.13 or higher
    - pip or uv package manager
 
 3. **AWS Account (will create one if it doesn't exist) ** (for S3 storage)
@@ -143,9 +143,7 @@ AWS_DBT_Snowflake/
    ```bash
    python -m venv .venv
    .venv\Scripts\Activate.ps1  # Windows PowerShell
-   # or
-   source .venv/bin/activate    # Linux/Mac
-   ```
+      ```
 
 3. **Install Dependencies**
    ```bash
