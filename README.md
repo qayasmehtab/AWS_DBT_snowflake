@@ -21,7 +21,7 @@ Source Data (CSV) → AWS S3 → Snowflake (Staging) → Bronze Layer → Silver
 - **Transformation Layer**: dbt (Data Build Tool)
 - **Cloud Storage**: AWS S3 (implied)
 - **Version Control**: Git
-- **Python**: 3.12+
+- **Python**: 3.13+
 - **Key dbt Features**:
   - Incremental models
   - Snapshots (SCD Type 2)
@@ -90,9 +90,9 @@ AWS_DBT_Snowflake/
     │   │   ├── silver_hosts.sql
     │   │   └── silver_listings.sql
     │   └── gold/                       # Analytics layer
-    │       ├── fact.sql
     │       ├── obt.sql
-    │       └── ephemeral/              # Temporary models
+    │       ├
+    │       └── ephemeral/              
     │           ├── bookings.sql
     │           ├── hosts.sql
     │           └── listings.sql
@@ -123,13 +123,13 @@ AWS_DBT_Snowflake/
 
 ### Prerequisites
 
-1. **Snowflake Account (will create one if doesn't exist)**
+1. **Snowflake Account (will create one if it doesn't exist)**
 
 2. **Python Environment**
    - Python 3.12 or higher
    - pip or uv package manager
 
-3. **AWS Account (will create one if doesn't exist) ** (for S3 storage)
+3. **AWS Account (will create one if it doesn't exist) ** (for S3 storage)
 
 ### Installation
 
